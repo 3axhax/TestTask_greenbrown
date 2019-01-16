@@ -51,7 +51,9 @@ class Init
                   start_time  int unsigned                                    null,
                   end_time    int unsigned                                    null,
                   result      enum ('normal', 'illegal', 'failed', 'success') null
-                )", $this->config['table']['table_name']);
+                )
+                ENGINE=MyISAM DEFAULT CHARSET=cp1251;
+                ", $this->config['table']['table_name']);
         $res = (bool) $this->db->query($sql);
         return $res;
     }
