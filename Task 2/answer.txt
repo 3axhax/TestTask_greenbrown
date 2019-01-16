@@ -1,0 +1,14 @@
+Из оптимизации запроса могу только предложить явное указание необходимых полей и использовать конструкцию "JOIN":
+
+SELECT d.date, d.value, i.name, i.description FROM data as d
+  LEFT JOIN link as l ON l.data_id = d.id
+  LEFT JOIN info as i ON l.info_id = i.id
+
+Из оптимизации таблиц могу предложить дополнительно связать таблицы через внешние ключи в "link":
+
+CREATE TABLE link (
+                    data_id int(11) NOT NULL,
+                    info_id int(11) NOT NULL,
+                      FOREIGN KEY (data_id) REFERENCES data(id),
+                      FOREIGN KEY (info_id) REFERENCES info(id)
+) ENGINE=MyISAM DEFAULT CHARSET=cp1251;
