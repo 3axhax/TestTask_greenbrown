@@ -4,6 +4,8 @@ SELECT d.date, d.value, i.name, i.description FROM data as d
   LEFT JOIN link as l ON l.data_id = d.id
   LEFT JOIN info as i ON l.info_id = i.id
 
+
+
 Из оптимизации таблиц могу предложить дополнительно связать таблицы через внешние ключи в "link":
 
 CREATE TABLE link (
